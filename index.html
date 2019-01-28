@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+    <script src="main.js"></script>
+    <script src="decode.js"></script>
+
+    <script>
+    
+    function encodeText(){
+        let strEncode = new Encoding();
+        let input = document.getElementById("encodeText").value;
+
+        let output = strEncode.textToAscii(input);
+        document.getElementById("output").value = output;
+    }
+
+    function decodeText(){
+        let strDecode = new Decoding();
+        let input = document.getElementById("decodeText").value;
+        let output = strDecode.baseToDecimal(input);
+
+        document.getElementById("output").value = output;
+    }
+
+    function reset(){
+        document.getElementById("encodeText").value = "";
+        document.getElementById("decodeText").value = "";
+        document.getElementById("output").value = "";
+    }
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: 'Dancing Script', cursive;">Base64 Encoding</h1>
+    </div>
+    
+    <div class="container">
+        <div class="sectionOne">
+            <textarea id="encodeText" placeholder="Text to Encode.." rows="10" cols="30"></textarea>
+            <button id="encode" type="button" onclick="encodeText()">Encode</button>
+        </div>
+        <div class="sectionTwo">
+            <textarea id="decodeText" rows="10" placeholder="Text to Decode.." cols="30"></textarea>
+            <button id="decode" type="button" onclick="decodeText()">Decode</button>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="sectionThree">
+            <textarea id="output" rows="10" placeholder="Output" cols="30"></textarea>    
+            <button type="button" onclick="reset()">Reset</button>            
+        </div>
+    </div>
+</body>
+</html>
